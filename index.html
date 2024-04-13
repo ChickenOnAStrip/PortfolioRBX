@@ -3,25 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.5s;
+        }
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+        .project {
+            border: 2px solid #444;
+            padding: 20px;
+            margin: 20px;
+            transition: box-shadow 0.5s;
+        }
+        .project:hover {
+            box-shadow: 0 0 10px #00f;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>My Portfolio</h1>
-        <button id="toggle-mode">Toggle Dark Mode</button>
+    <button id="toggleDarkMode">Toggle Dark Mode</button>
+    <header>
+        <h1 id="title">My Portfolio</h1>
+        <img id="header-img" src="header.jpg" alt="Header Image">
+    </header>
+    <section id="portfolio">
         <div class="project">
-  <img src="project-image.jpg" alt="Project Image" class="project-image">
-  <div class="project-info">
-    <h2 class="project-title">Project Title</h2>
-    <p class="project-description">Project Description</p>
-  </div>
-</div>
-        <div class="portfolio-item">
-            <h2>Project 2</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+            <h2 class="project-title">Project 1</h2>
+            <p class="project-description">Description of Project 1</p>
+            <img class="project-img" src="project1.jpg" alt="Project 1 Image">
         </div>
-    </div>
-    <script src="scripts.js"></script>
+        <!-- More projects here -->
+    </section>
+    <footer>
+        <p>&copy; 2024 My Portfolio</p>
+    </footer>
+    <script>
+        const toggleButton = document.getElementById('toggleDarkMode');
+        const body = document.body;
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        });
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('darkMode') === 'true') {
+                body.classList.add('dark-mode');
+            }
+        });
+    </script>
 </body>
 </html>
