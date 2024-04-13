@@ -1,40 +1,43 @@
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  transition: background-color 0.5s, color 0.5s;
-  background-color: #111;
-  color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.5s, color 0.5s;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .light-mode {
-  background-color: #f0f0f0;
-  color: #333;
+    --background-color: #f0f0f0;
+    --text-color: #333;
 }
 
-.dark-mode .project {
-  box-shadow: 0 0 10px #fff;
+.dark-mode {
+    box-shadow: 0 0 10px var(--text-color);
+    --background-color: #000000;
+    --text-color: #ffffff;
+
 }
 
 .project {
-  border: 2px solid #666;
-  padding: 20px;
-  margin: 20px;
-  transition: box-shadow 0.5s;
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    margin: 20px;
+    transition: box-shadow 0.5s;
 }
 
 #toggleDarkMode {
-  border-radius: 12px;
-  padding: 10px;
-  color: #fff;
-  background-color: #000;
-  transition: background-color 0.5s, box-shadow 0.5s;
-  box-shadow: 0 0 10px #666;
+    border-radius: 12px;
+    padding: 10px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.5s, box-shadow 0.5s;
+    box-shadow: 0 0 10px var(--border-color);
 }
 
 .light-mode #toggleDarkMode {
-  background-color: #fff;
-  color: #000;
-  box-shadow: none;
+    background-color: #fff;
+    color: #000;
+    box-shadow: none;
 }
