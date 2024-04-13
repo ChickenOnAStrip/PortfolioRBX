@@ -1,61 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            transition: background-color 0.5s;
-        }
-        .dark-mode {
-            background-color: #222;
-            color: white;
-        }
-        .project {
-            border: 2px solid #444;
-            padding: 20px;
-            margin: 20px;
-            transition: box-shadow 0.5s;
-        }
-        .project:hover {
-            box-shadow: 0 0 10px #00f;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      transition: background-color 0.5s;
+      background-color: #f0f0f0;
+      /* pastel color */
+      color: #333;
+      /* slightly darker pastel color for text */
+    }
+
+    .light-mode {
+      background-color: #fff;
+      color: #333;
+    }
+
+    .dark-mode .project {
+      box-shadow: 0 0 10px #00f;
+    }
+
+    .project {
+      border: 2px solid #ccc;
+      /* lighter border color */
+      padding: 20px;
+      margin: 20px;
+      transition: box-shadow 0.5s;
+    }
+
+    #toggleDarkMode {
+      border-radius: 12px;
+      padding: 10px;
+      color: white;
+      background-color: #00f;
+      transition: background-color 0.5s, box-shadow 0.5s;
+      box-shadow: 0 0 10px #000;
+    }
+
+    .light-mode #toggleDarkMode {
+      background-color: #fff;
+      color: #000;
+      box-shadow: none;
+    }
+  </style>
 </head>
-<body>
-    <button id="toggleDarkMode">Toggle Dark Mode</button>
-    <header>
-        <h1 id="title">My Portfolio</h1>
-        <img id="header-img" src="header.jpg" alt="Header Image">
-    </header>
-    <section id="portfolio">
-        <div class="project">
-            <h2 class="project-title">Project 1</h2>
-            <p class="project-description">Description of Project 1</p>
-            <img class="project-img" src="project1.jpg" alt="Project 1 Image">
-        </div>
-        <!-- More projects here -->
-    </section>
-    <footer>
-        <p>&copy; 2024 My Portfolio</p>
-    </footer>
-    <script>
-        const toggleButton = document.getElementById('toggleDarkMode');
-        const body = document.body;
-        toggleButton.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-        });
-        window.addEventListener('load', () => {
-            if (localStorage.getItem('darkMode') === 'true') {
-                body.classList.add('dark-mode');
-            }
-        });
-    </script>
+
+<body class="dark-mode">
+  <button id="toggleDarkMode">🌙</button>
+  <header>
+    <h1 id="title">My Portfolio</h1>
+    <img id="header-img" src="header.jpg" alt="Header Image"> <!-- Change the source to your header image -->
+  </header>
+  <section id="portfolio">
+    <div class="project">
+      <h2 class="project-title">Project 1</h2>
+      <p class="project-description">Description of Project 1</p>
+      <a href="project1.html">Link to Project 1</a> <!-- Change the href to your project link -->
+      <img class="project-img" src="project1.jpg" alt="Project 1 Image"> <!-- Change the source to your project image -->
+    </div>
+    <!-- More projects here -->
+  </section>
+  <footer>
+    <p>© 2024 My Portfolio</p>
+  </footer>
+  <script>
+    const toggleButton = document.getElementById('toggleDarkMode');
+    const body = document.body;
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      localStorage.setItem('lightMode', body.classList.contains('light-mode'));
+    });
+    window.addEventListener('load', () => {
+      if (localStorage.getItem('lightMode') === 'true') {
+        body.classList.add('light-mode');
+      }
+    });
+  </script>
 </body>
+
 </html>
