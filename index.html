@@ -2,87 +2,35 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-      transition: background-color 0.5s;
-      background-color: #f0f0f0;
-      /* pastel color */
-      color: #333;
-      /* slightly darker pastel color for text */
-    }
-
-    .light-mode {
-      background-color: #fff;
-      color: #333;
-    }
-
-    .dark-mode .project {
-      box-shadow: 0 0 10px #00f;
-    }
-
-    .project {
-      border: 2px solid #ccc;
-      /* lighter border color */
-      padding: 20px;
-      margin: 20px;
-      transition: box-shadow 0.5s;
-    }
-
-    #toggleDarkMode {
-      border-radius: 12px;
-      padding: 10px;
-      color: white;
-      background-color: #00f;
-      transition: background-color 0.5s, box-shadow 0.5s;
-      box-shadow: 0 0 10px #000;
-    }
-
-    .light-mode #toggleDarkMode {
-      background-color: #fff;
-      color: #000;
-      box-shadow: none;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="dark-mode">
-  <button id="toggleDarkMode">🌙</button>
-  <header>
-    <h1 id="title">My Portfolio</h1>
-    <img id="header-img" src="header.jpg" alt="Header Image"> <!-- Change the source to your header image -->
-  </header>
-  <section id="portfolio">
-    <div class="project">
-      <h2 class="project-title">Project 1</h2>
-      <p class="project-description">Description of Project 1</p>
-      <a href="project1.html">Link to Project 1</a> <!-- Change the href to your project link -->
-      <img class="project-img" src="project1.jpg" alt="Project 1 Image"> <!-- Change the source to your project image -->
-    </div>
-    <!-- More projects here -->
-  </section>
-  <footer>
-    <p>© 2024 My Portfolio</p>
-  </footer>
-  <script>
-    const toggleButton = document.getElementById('toggleDarkMode');
-    const body = document.body;
-    toggleButton.addEventListener('click', () => {
-      body.classList.toggle('light-mode');
-      localStorage.setItem('lightMode', body.classList.contains('light-mode'));
-    });
-    window.addEventListener('load', () => {
-      if (localStorage.getItem('lightMode') === 'true') {
-        body.classList.add('light-mode');
-      }
-    });
-  </script>
+  <button id="toggleDarkMode">🌙</button>
+  <header>
+    <h1 id="title">My Portfolio</h1>
+    <img id="header-img" src="header.jpg" alt="Header Image"> <!-- Change the source to your header image -->
+  </header>
+  <section id="portfolio">
+    <div class="project" style="max-width: 1200px;">
+      <h2 class="project-title">Simple Combat System</h2>
+      <p class="project-description">Description of Project 1</p>
+      <div style="position: relative; padding-bottom: 62.5%; padding-top: 30px; height: 0; overflow: hidden;">
+        <iframe allow="fullscreen" allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                src="https://streamable.com/e/eooh5l?autoplay=1"
+                width="1280" height="720" frameborder="0"></iframe>
+      </div>
+    </div>
+  </section>
+  <footer>
+  <h2 style="font-size: 1.2em;">Contact Me On Discord: ChickenOnAStrip</h2>
+    <p class="copyright">&copy; 2024 ChickenOnAStrip</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 
 </html>
